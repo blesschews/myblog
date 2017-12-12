@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%;">
 <head>
 
 	<meta charset="utf-8">
@@ -14,30 +14,30 @@
 
 	{% load staticfiles %}
 	<title>{{ title }} - Blesschews Blog</title>
-	<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css">
-	{# <link rel="stylesheet" type="text/css" href="{% static "styles/css/bootstrap.css" %}"> #}
+	<!--<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css">-->
+	<link rel="stylesheet" type="text/css" href="{% static "styles/css/bootstrap.css" %}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
     <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
-	
+
 </head>
 
-<body>
 
 
-<nav class="navbar navbar-inverse ">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class='navbar-brand' href="#">Blesschews</a>
+
+<nav class="navbar " >
+	<div class="container-fluid navbar-fixed-top"  style="background:chocolate" >
+		<div class="navbar-header ">
+			<a class='navbar-brand' href="#" style="color:black;">Blesschews</a>
 		</div>
 
 
         <div class="collapse navbar-collapse">
 		<ul class="nav navbar-nav navbar-right">
-			<li><a  href="#">About</a></li>
-			<li><a  href="#">Projects</a></li>
-			<li class="dropdown"><a  class="dropdown-toggle"  data-toggle="dropdown" href="#">Articles<span class="caret"></span></a>
+			<li><a  href="#" style="color:black;">About</a></li>
+			<li><a  href="#" style="color:black;">Projects</a></li>
+			<li class="dropdown"><a  class="dropdown-toggle"  data-toggle="dropdown" href="#" style="color:black;">Articles<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li class="dropdown-item"><a href="#">Programming</a></li>
 					<li class="dropdown-item"><a href="#">Networking</a></li>
@@ -48,32 +48,39 @@
 			</li>
 		</ul>
         </div>
-		
+
 	</div>
-	
+
 </nav>
 
+<div class="contain" style="">
 
-<div class=" content container" style="background:chocolate">
+
+
+<body style="">
+
+
+<div class=" content container">
 	{% block content %}
 	{% endblock %}
 </div>
+</body>
 
 
-<footer class="navbar" style="margin-top:10px;background:black;">
+<footer class="navbar navbar-fixed-bottom" style="margin-top:10px;background:black;">
 	<div class="container-fluid">
 		<ul class="nav navbar-nav ">
 			<li><a href="https://github.com/blesschews"><i class="fa fa-github"></i> </a></li>
 			<li><a href="https://gitlab.com/blesschews"><i class="fa fa-gitlab"></i> </a></li>
 			<li><a href="https://twitter.com/BeeChiwa"><i class="fa fa-twitter"></i>    </a></li>
 			<li><a href="https://www.facebook.com/alice.chivaura"><i class="fa fa-facebook"></i>    </a></li>
-			<li> <a href="#">&copy; Blessing Chiwaura</a></li>
+			<li> <a href="#">&copy; Blessing Chiwaura 2017</a></li>
 
 		</ul>
 	</div>
 </footer>
 
-
+</div>
 
 
 
@@ -82,5 +89,5 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/static/styles/js/bootstrap.min.js"></script>
-</body>
+
 </html>

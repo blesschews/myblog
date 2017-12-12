@@ -3,23 +3,41 @@
 {% block content %}
 
 <div class="row">
-	<div class="col-xs-12">
-		<h2>Recent Posts</h2>
-		{% for post in recent_posts %}
-		<p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
+	<div class="col-xs-6">
+		<ul style="list-style:none; display:inline-block">
+		<i class="fa fa-tags"></i>{% for tag in tags %}
+			<a href="#">{{ tag.name }} &nbsp</a>
 		{% endfor %}
+		</ul>
+		
+		<hr>
+		<h2>{{ latest_post.title }}</h2>
+		{% if latest_post.date_published %}
+		<p>{{ latest_post.date_published }}</p>
+		{% endif %}
+
+		<p>{{ latest_post.content|safe|linebreaks }}</p>
+		
+	</div>
+	<div class="col-xs-2"></div>
+	<div class="col-xs-4">
+		<div>
+			<h2><i>Recent Posts</i></h2>
+			{% for post in recent_posts %}
+			<p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
+			{% endfor %}
+		</div>
+
+		<div>
+			<h2><i>All Posts</i></h2>
+			{% for article in all_posts %}
+			<p><a href="{% url 'post_detail' pk=article.pk %}">{{ article.title }}</a></p>
+			{% endfor %}
+		</div>
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-xs-12">
-		<h2>All Posts</h2>
-		{% for article in all_posts %}
-		<p><a href="{% url 'post_detail' pk=article.pk %}">{{ article.title }}</a></p>
-		{% endfor %}
-	</div>
-	
-</div>
+
 
 
 	
