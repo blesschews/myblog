@@ -4,19 +4,13 @@
 
 <div class="row">
 	<div class="col-xs-6">
-		<ul style="list-style:none; display:inline-block">
-		<i class="fa fa-tags"></i>{% for tag in tags %}
-			<a href="#">{{ tag.name }} &nbsp</a>
-		{% endfor %}
-		</ul>
-		
-		<hr>
 		<h2>{{ latest_post.title }}</h2>
 		{% if latest_post.date_published %}
 		<p>{{ latest_post.date_published }}</p>
 		{% endif %}
-
-		<p>{{ latest_post.content|safe|linebreaks }}</p>
+		<p>{% for tag in post_tags %} <a><i>{{  tag.name }} &nbsp</i></a>{% endfor %}</p>
+		<p>{{ latest_post.content|safe|linebreaksbr }}</p>
+		<p><i>Author- <a href="https://twitter.com/BeeChiwa">Blessing Chiwaura</a></i></p>
 		
 	</div>
 	<div class="col-xs-2"></div>

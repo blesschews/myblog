@@ -14,7 +14,9 @@ class PostDetailView(DetailView):
 	def get_context_data(self, **kwargs):
 		context = super(PostDetailView, self).get_context_data(**kwargs)
 		context['title']='Posts'
+		context['tags']=Tag.objects.all().order_by('pk')
 		context['post']=get_object_or_404(Post,	pk=self.kwargs['pk'])
+		context['post_tags']=get_object_or_404(Post,	pk=self.kwargs['pk']).tags.all()
 		return context
 
 
@@ -30,6 +32,7 @@ class HomeView(TemplateView):
 		context['all_posts']=Post.objects.all().order_by('pk')
 		context['tags']=Tag.objects.all().order_by('pk')
 		context['latest_post']=Post.objects.all().last()
+		context['post_tags']=Post.objects.all().last().tags.all()
 		return context
 
 

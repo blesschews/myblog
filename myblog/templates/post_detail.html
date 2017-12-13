@@ -7,13 +7,9 @@
 		{% if post.date_published %}
 		<p>{{ post.date_published }}</p>
 		{% endif %}
-
-		<p>{{ post.content|safe|linebreaks }}</p>
-		{# <form>
-			{{ form.media }}
-			{{ form.as_p }}
-			<input type="submit"/>
-		</form> #}
+        <p>{% for tag in post_tags %} <a><i>{{  tag.name }} &nbsp</i></a>{% endfor %}</p>
+		<p>{{ post.content|safe|linebreaksbr }}</p>
+		<p><i>Author- <a href="https://twitter.com/BeeChiwa">Blessing Chiwaura</a></i></p>
 	</div>
 </div>
 
