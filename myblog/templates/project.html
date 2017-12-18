@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-xs-6">
+		<h2>Projects</h2>
+		{% for project in projects %}
+			<p>{{ project.name }}</p>
+			<p>{{ project.description }}
+			<p><a href="{{  project.link }}">Link</a></p>
+			<hr>
+			{% empty %}
+			<p><i>Projects links coming soon</i></p>	
+			{% endfor %}
+
+	</div>
+	
+</div>
+{% endblock %}

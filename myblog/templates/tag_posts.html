@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-xs-6">
+		<h2> {{ title }}</h2>
+		{% for post in tag_posts %}
+		<p> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
+		{% empty %}
+		<p><i>No Posts for this tag at the moment</i></p>
+		{% endfor %}
+		
+	</div>
+</div>
+
+
+
+
+	
+{% endblock %}

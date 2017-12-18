@@ -4,12 +4,29 @@
 <div class="row">
 	<div class="col-xs-8">
 		<h2>{{ post.title }}</h2>
+		
 		{% if post.date_published %}
 		<p>{{ post.date_published }}</p>
 		{% endif %}
-        <p>{% for tag in post_tags %} <a><i>{{  tag.name }} &nbsp</i></a>{% endfor %}</p>
-		<p>{{ post.content|safe|linebreaksbr }}</p>
-		<p><i>Author- <a href="https://twitter.com/BeeChiwa">Blessing Chiwaura</a></i></p>
+		<p>{% for tag in post_tags %} <a href="{% url 'tagged_post' pk=tag.pk %}"><i>{{  tag.name }} &nbsp</i></a>{% endfor %}</p>
+		<p>{{ post.content|safe|linebreaks }}</p>
+		<br>
+		<p>Author- <a href="https://twitter.com/BeeChiwa">Blessing Chiwaura</a></i></p>
+		<hr>
+
+		
+		<a href="{% url 'add_comment' pk=post.pk %}"><button type="submit" class="save btn btn-primary">Add comment</button></a>
+		
+		<h2>Comments</h2>
+		{% for comment in post.comments.all %}
+		<p class="date">{{ comment.created_date }}</p>
+		<strong>{{ comment.email }}</strong>
+		<p>{{ comment.comment_text|linebreaks }}</p>
+		<hr style="border-color:chocolate">
+		{% empty %}
+		<p>No comments here yet :(</p>
+		{% endfor %}
+		
 	</div>
 </div>
 

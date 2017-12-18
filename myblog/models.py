@@ -30,8 +30,25 @@ class Tag(models.Model):
 class Comment(models.Model):
 	name=models.CharField(max_length=32)
 	email=models.EmailField()
+	post=models.ForeignKey(Post, related_name='comments', null=True)
 	comment_text=models.TextField()
+	created_date = models.DateTimeField(default=timezone.now)
+	approved_comment = models.BooleanField(default=True)
 
+	def approve(self):
+		self.approved_comment = True
+		self.save()
+
+	def __str__(self):
+		return self.comment_text
+
+class Project(models.Model):
+	name=models.CharField(max_length=30)
+	description=models.TextField()
+	link=models.URLField()
+
+	def __unicode__(self):
+		return self.name
 
 	
 
