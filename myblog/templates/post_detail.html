@@ -9,7 +9,11 @@
 		<p>{{ post.date_published }}</p>
 		{% endif %}
 		<p>{% for tag in post_tags %} <a href="{% url 'tagged_post' pk=tag.pk %}"><i>{{  tag.name }} &nbsp</i></a>{% endfor %}</p>
+		{% if post.content %}
 		<p>{{ post.content|safe|linebreaks }}</p>
+		{% else %}
+		<p><i>Post content coming soon</i></p>
+		{% endif %}
 		<br>
 		<p>Author- <a href="https://twitter.com/BeeChiwa">Blessing Chiwaura</a></i></p>
 		<hr>

@@ -9,7 +9,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Post(models.Model):
 	title=models.CharField(max_length=100)
 	tags=models.ManyToManyField('Tag')
-	body=models.TextField()
+	body=models.TextField(blank=True, null=True)
 	content = RichTextUploadingField(null=True)
 	date_created=models.DateTimeField(default=timezone.now)
 	date_published=models.DateTimeField(null=True, blank=True)
