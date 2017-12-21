@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row">
-	<div class="col-xs-6">
+	<div class="col-xs-10">
 		<h2>{{ latest_post.title }}</h2>
 		{% if latest_post.date_published %}
 		<p>{{ latest_post.date_published }}</p>
@@ -24,7 +24,7 @@
 		
 	</div>
 	<div class="col-xs-2"></div>
-	<div class="col-xs-4">
+	
 		<div>
 			<h2><i>Recent Posts</i></h2>
 			{% for post in recent_posts %}
